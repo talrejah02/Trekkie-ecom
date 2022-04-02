@@ -1,13 +1,25 @@
-body {
-  margin: 0;
-  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
-    'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue',
-    sans-serif;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
-}
+@import url('https://fonts.googleapis.com/css2?family=Rubik:wght@300;400;500;600;700;800;900&display=swap');
+@import url('https://droid-ui.netlify.app/components/navigation/navigation.css');
 
-code {
-  font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
-    monospace;
+:root {
+    --primary: #2489bb;
+    --secondary: #111212;
+    --secondary-light: #1a1b1b;
+    --accent: #FFEA29;
+    --secondary-grey: #f7f7f7;
+    --accent-light: #726d3c;
+    --font-primary: #f1f1f1;
+    --font-secondary: #b4b3b3;
+    --font-secondary-dark: #3b3b3b;
+    --btn-primary: #2489bb;
+    --btn-primary-hover: #017DBC;
+    --white: #ffffff;
+    --card-shadow: 0px 0px 6px 1px #cdc9c9;
+}
+* {
+    font-size: 16px;
+    font-family: 'Rubik', sans-serif;
+    margin: 0;
+    letter-spacing: 1.5px;
+    box-sizing: border-box;
 }
