@@ -1,9 +1,8 @@
 import React from 'react'
 import { NavLink } from 'react-router-dom'
-import CategoryCards from '../../components/Category cards/CategoryCards'
+import {CategoryCards,HeroCards} from '../../components/index'
 import { categories, HeroCategories } from '../../backend/db/categories'
 import "./Home.css"
-import HeroCards from '../../components/Category cards/HeroCards'
 
 function Home() {
   return (
@@ -27,4 +26,4 @@ function Home() {
   )
 }
 
-export default Home
+export {Home}
