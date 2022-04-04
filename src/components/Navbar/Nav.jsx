@@ -34,7 +34,7 @@ function Nav() {
             </section>
             <section className="nav-right">
                 <NavLink to="/" className="nav-link">Shop</NavLink>
-                <NavLink to="/" className="nav-link">Login</NavLink>
+                <NavLink to="/Login" className="nav-link">Login</NavLink>
                 <NavLink to="/" className="nav-link">
                     <svg xmlns="http://www.w3.org/2000/svg" xmlnsXlink="http://www.w3.org/1999/xlink"
                         aria-hidden="true" role="img" className="iconify iconify--ph" width="20" height="20"
