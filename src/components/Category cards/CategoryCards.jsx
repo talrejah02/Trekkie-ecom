@@ -13,4 +13,4 @@ function CategoryCards({ categoryName, Image }) {
   )
 }
 
-export default CategoryCards
+export {CategoryCards}

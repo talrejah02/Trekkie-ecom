@@ -23,4 +23,4 @@ function HeroCards({ categoryText, categorySubtext, Image }) {
     )
 }
 
-export default HeroCards
+export {HeroCards}
