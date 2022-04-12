@@ -1,0 +1,59 @@
+.filter-wrapper {
+    display: flex;
+    justify-content: space-between;
+    flex-direction: column;
+    background-color: var(--white);
+    width: 19%;
+    height: 100%;
+    padding: 1rem;
+    padding-top: 0.5rem;
+}
+
+.filter-header {
+    display: flex;
+    justify-content: space-between;
+    margin-bottom: 0.4rem;
+}
+
+.filter-heading {
+    font-size: 1.2rem;
+    font-weight: 600;
+    padding: 0.3rem 0rem;
+    margin-bottom: 0.3rem;
+}
+
+.filter-subheading {
+    font-size: 0.95rem;
+    font-weight: 600;
+    padding: 0.3rem 0rem;
+    margin-bottom: 0.3rem;
+}
+
+.btn-clear {
+    background-color: transparent;
+    border: none;
+    font-size: 0.8rem;
+}
+
+.slider-text {
+    display: flex;
+    justify-content: space-between;
+}
+
+.filter {
+    display: flex;
+    flex-direction: column;
+    margin-bottom: 0.7rem;
+}
+
+.filter-box {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    margin-bottom: 0.5rem;
+}
+
+.labels {
+    font-size: 0.75rem;
+    font-weight: 400;
+}
