@@ -33,7 +33,7 @@ function Nav() {
                 <input className="header-search-input" type="text" placeholder="search" />
             </section>
 
-       
+            <section className="nav-right">
                 <NavLink to="/Login" className="nav-link">Login</NavLink>
       <NavLink to="/Shop" className="nav-link">Shop</NavLink>
            
