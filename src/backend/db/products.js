@@ -8,7 +8,7 @@ import { v4 as uuid } from "uuid";
 export const products = [
   {
     _id: uuid(),
-    image:"/Image/sweater.webp",
+    image:"Images/sweater.webp",
     title:"Men's T shirt",
     categoryName:"clothing",
     orignalPrice:999,
@@ -19,7 +19,7 @@ export const products = [
   },
   {
     _id: uuid(),
-    image:"/Image/jacket.webp",
+    image:"/Images/jacket.webp",
     title:"Unisex Jacket",
     categoryName:"clothing",
     orignalPrice:1999,
@@ -30,7 +30,7 @@ export const products = [
   },
   {
     _id: uuid(),
-    image:"/Image/trouser.webp",
+    image:"/Images/trousers.webp",
     title:"Hiking trouser",
     categoryName:"clothing",
     orignalPrice:1499,
@@ -41,7 +41,7 @@ export const products = [
   },
   {
     _id: uuid(),
-    image:"/Image/jacket.jpg",
+    image:"/Images/jacket.jpg",
     title:"Womens winter jacket",
     categoryName:"clothing",
     orignalPrice:1999,
@@ -52,7 +52,7 @@ export const products = [
   },
   {
     _id: uuid(),
-    image:"/Image/backpack3.webp",
+    image:"/Images/backpack3.webp",
     title:"Hiking 20L backpack",
     categoryName:"Backpacks",
     orignalPrice:499,
@@ -63,7 +63,7 @@ export const products = [
   },
   {
     _id: uuid(),
-    image:"/Image/backpack3.webp",
+    image:"/Images/backpack3.webp",
     title:"hiking 50-60L backpack",
     categoryName:"Backpacks",
     orignalPrice:9999,
@@ -74,7 +74,7 @@ export const products = [
   },
   {
     _id: uuid(),
-    image:"/Image/bag.webp",
+    image:"/Images/bag.webp",
     title:"10L pocket backpack",
     categoryName:"backpack",
     orignalPrice:199,
@@ -85,7 +85,7 @@ export const products = [
   },
   {
     _id: uuid(),
-    image:"/Image/tent.webp",
+    image:"/Images/tent.webp",
     title:"Dome trekking tent 2 person",
     categoryName:"Camping",
     orignalPrice:7999,
@@ -96,7 +96,7 @@ export const products = [
   },
   {
     _id: uuid(),
-    image:"/Image/tent2.webp",
+    image:"/Images/tent2.webp",
     title:"Dome trekking tent 3 person",
     categoryName:"camping",
     orignalPrice:9999,
@@ -107,7 +107,7 @@ export const products = [
   },
   {
     _id: uuid(),
-    image:"/Image/tent3.webp",
+    image:"/Images/tent3.webp",
     title:"Dome trekking tent 3 person",
     categoryName:"camping",
     orignalPrice:9999,
@@ -118,7 +118,7 @@ export const products = [
   },
   {
     _id: uuid(),
-    image:"/Image/sweater.webp",
+    image:"/Images/sweater.webp",
     title:"Men's T shirt",
     categoryName:"clothing",
     orignalPrice:999,
@@ -129,7 +129,7 @@ export const products = [
   },
   {
     _id: uuid(),
-    image:"/Image/shoes.webp",
+    image:"/Images/shoes.webp",
     title:"trekking shoes MH600",
     categoryName:"footwear",
     orignalPrice:7999,
@@ -140,7 +140,7 @@ export const products = [
   },
   {
     _id: uuid(),
-    image:"/Image/shoes2.webp",
+    image:"/Images/shoes2.webp",
     title:"trekking shoes MH900",
     categoryName:"footwear",
     orignalPrice:9999,
@@ -151,7 +151,7 @@ export const products = [
   },
   {
     _id: uuid(),
-    image:"/Image/shoes3.webp",
+    image:"/Images/shoes3.webp",
     title:"trekking shoes XH500",
     categoryName:"footwear",
     orignalPrice:9999,
@@ -162,7 +162,7 @@ export const products = [
   },
   {
     _id: uuid(),
-    image:"/Image/pole1.webp",
+    image:"/Images/pole1.webp",
     title:"trekking pole",
     categoryName:"Gears",
     orignalPrice:1499,
@@ -173,7 +173,7 @@ export const products = [
   },
   {
     _id: uuid(),
-    image:"/Image/light.webp",
+    image:"/Images/light.webp",
     title:"Head lamp",
     categoryName:"gears",
     orignalPrice:399,
