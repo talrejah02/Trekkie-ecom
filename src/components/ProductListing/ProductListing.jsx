@@ -4,7 +4,8 @@ import { ProductCard } from '../index'
 import "./ProductListing.css"
 
 function ProductListing() {
-  const{products}=useProducts()
+  const{state}=useProducts()
+  const{products}=state
    
   return (
     <section className="card-container">
