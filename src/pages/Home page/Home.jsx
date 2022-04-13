@@ -7,8 +7,8 @@ import "./Home.css"
 function Home() {
   return (
     <div> <section className="hero">
-      <img alt="please reload" className="hero-image"
-        src="https://www.decathlon.in/_next/image?url=https%3A%2F%2Fcontents.mediadecathlon.com%2Fs896860%2Fk%24382f8943451fc70c7f2ae3d4ab3db60a%2Fdesktop.jpg%3Ff%3D0x250%3Ff%3D1920x470%26format%3Dauto&w=1920&q=75" />
+      <img alt="" className="hero-image"
+        src="Images/cover.webp" />
     </section>
 
       <section className="category-nav">
