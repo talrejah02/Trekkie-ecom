@@ -6,7 +6,9 @@ import "./filters.css"
 function Filters({data}) {  
   const {dispatch}= useProducts()
   const [slider,setSlider]=useState(10000)
+  
 
+  
   const sliderHandler=(e)=>{
     dispatch({type:"REFRESH_PRODUCTS",payload:data})
     setSlider(parseInt(e.target.value,10))
@@ -21,72 +23,71 @@ function Filters({data}) {
   
 
   return (
-    <aside class="filter-wrapper">
-        <section class="filter-header">
-          <span class="filter-heading">Filters</span>
-          <button class="btn-clear" onClick={()=> dispatch({type:"REFRESH_PRODUCTS",payload:data})}>clear</button>
+    <aside className="filter-wrapper">
+        <section className="filter-header">
+          <span className="filter-heading">Filters</span>
+          <button className="btn-clear" onClick={()=> dispatch({type:"REFRESH_PRODUCTS",payload:data})}>clear</button>
         </section>
-        <section class="filter">
-          <span class="filter-subheading">price</span>
-          <input type="range" min="99" max="15999" step={1} value={slider}   class="slider"  onChange={(e)=>sliderHandler(e)} onClick={(e)=>sliderHandler(e)}  />
+        <section className="filter">
+          <span className="filter-subheading">price</span>
+          <input type="range" min="99" max="15999" step={1} value={slider}   className="slider"  onChange={(e)=>sliderHandler(e)} onClick={(e)=>sliderHandler(e)}  />
           <span>{slider}</span>
         </section>
-        <section class="filter">
-          <span class="filter-subheading">category</span>
-
-          <section class="filter-box">
+        <section className="filter">
+          <span className="filter-subheading">category</span>
+          <section className="filter-box">
             <input type="radio" name="CATEGORY" value="backpacks" onChange={()=>dispatch({type:"REFRESH_PRODUCTS",payload:data})} />
-            <label class="labels" for="All">ALL</label>
+            <label className="labels" >ALL</label>
           </section>
-          <section class="filter-box">
+          <section className="filter-box">
             <input type="radio" name="CATEGORY" value="backpacks" onChange={(e)=>categoryRatingsHandler(e)} />
-            <label class="labels" for="backpacks">Backpacks</label>
+            <label className="labels" >Backpacks</label>
           </section>
-          <section class="filter-box">
+          <section className="filter-box">
             <input type="radio" name="CATEGORY" value="clothing" onChange={(e)=>categoryRatingsHandler(e)} />
-            <label class="labels" for="clothing">Clothing</label>
+            <label className="labels">Clothing</label>
           </section>
-          <section class="filter-box">
+          <section className="filter-box">
             <input type="radio" name="CATEGORY" value="camping" onChange={(e)=>categoryRatingsHandler(e)} />
-            <label class="labels" for="camping">Camping</label>
+            <label className="labels">Camping</label>
           </section>
-          <section class="filter-box">
+          <section className="filter-box">
             <input type="radio" name="CATEGORY" value="footwear" onChange={(e)=>categoryRatingsHandler(e)} />
-            <label class="labels" for="footwear">Footwear</label>
+            <label className="labels">Footwear</label>
           </section>
-          <section class="filter-box">
+          <section className="filter-box">
             <input type="radio" name="CATEGORY" value="gears" onChange={(e)=>categoryRatingsHandler(e)} />
-            <label class="labels" for="gears">Gears</label>
+            <label className="labels" >Gears</label>
           </section>
         </section>
-        <section class="filter">
-          <span class="filter-subheading">Rating</span>
-          <section class="filter-box">
-            <input type="radio" name="RATINGS" value={4} onChange={(e)=>categoryRatingsHandler(e)}/>
-            <label class="labels" >4 Stars & above</label>
+        <section className="filter">
+          <span className="filter-subheading">Rating</span>
+          <section className="filter-box">
+            <input type="radio" name="RATINGS" value={4} onChange={(e)=>dispatch({type:e.target.name,payload:e.target.value}) }/>
+            <label className="labels" >4 Stars & above</label>
           </section>
-          <section class="filter-box">
-            <input type="radio" name="RATINGS" id="three" value={3} onChange={(e)=>categoryRatingsHandler(e)}/>
-            <label class="labels" for="three">3 Stars & above</label>
+          <section className="filter-box">
+            <input type="radio" name="RATINGS" id="three" value={3} onChange={(e)=>dispatch({type:e.target.name,payload:e.target.value}) }/>
+            <label className="labels" >3 Stars & above</label>
           </section>
-          <section class="filter-box">
-            <input type="radio" name="RATINGS" id="two" value={2} onChange={(e)=>categoryRatingsHandler(e)}/>
-            <label class="labels" for="two">2 Stars & above</label>
+          <section className="filter-box">
+            <input type="radio" name="RATINGS" id="two" value={2} onChange={(e)=>dispatch({type:e.target.name,payload:e.target.value}) }/>
+            <label className="labels" >2 Stars & above</label>
           </section>
-          <section class="filter-box">
-            <input type="radio" name="RATINGS" id="one" value={1} onChange={(e)=>categoryRatingsHandler(e)}/>
-            <label class="labels" for="one">1 star & above</label>
+          <section className="filter-box">
+            <input type="radio" name="RATINGS" id="one" value={1} onChange={(e)=>dispatch({type:e.target.name,payload:e.target.value}) }/>
+            <label className="labels" >1 star & above</label>
           </section>
         </section>
-        <section class="filter">
-          <span class="filter-subheading">Sort By</span>
-          <section class="filter-box">
+        <section className="filter">
+          <span className="filter-subheading">Sort By</span>
+          <section className="filter-box">
             <input type="radio" name="sort" id="low" onChange={()=>dispatch({type:"LOW_TO_HIGH"})} />
-            <label class="labels" for="low">Low to High</label>
+            <label className="labels" >Low to High</label>
           </section>
-          <section class="filter-box">
+          <section className="filter-box">
             <input type="radio" name="sort" id="high" onChange={()=>dispatch({type:"HIGH_TO_LOW"})} />
-            <label class="labels" for="high">High to Low</label>
+            <label className="labels" >High to Low</label>
           </section>
         </section>
       </aside>

@@ -8,13 +8,19 @@ import axios from 'axios'
 function ProductPage() {
   const [defaultProducts,setDefaultProducts]=useState([])
 
-  const {dispatch}=useProducts()
+  const {state,dispatch}=useProducts()
+  
   useEffect(()=>{ 
     (async ()=>{
         try{
-             const response = await axios.get("/api/products")
-             dispatch({type:"ADD_PRODUCTS",payload:response.data.products})
-             setDefaultProducts(response.data.products)
+          if(state["products"].length>1){
+            return
+          }else{
+              const response = await axios.get("/api/products")
+              dispatch({type:"ADD_PRODUCTS",payload:response.data.products})
+              setDefaultProducts(response.data.products)
+                
+             }
         }catch(error){
 
             console.log(error)

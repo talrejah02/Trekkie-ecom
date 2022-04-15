@@ -1,8 +1,11 @@
 import React from 'react'
 import { NavLink } from 'react-router-dom'
+import { useProducts } from '../../context/ProductsContext'
 
 
-function HeroCards({ categoryText, categorySubtext, Image }) {
+function HeroCards({ categoryName,categoryText, categorySubtext, Image }) {
+   const {dispatch}=useProducts()
+   
     return (
         <section className="category-card">
             <img alt="please reload" className="category-card-img" src={Image} />
@@ -14,11 +17,9 @@ function HeroCards({ categoryText, categorySubtext, Image }) {
                 <span className="category-card-badge-text">STARTING FROM</span>
                 <span className="badge"><span>₹</span>499</span>
             </section>
-            <button className="category-card-btn" to="">
-                <NavLink className="btn-link" to="">
+                <NavLink className=" category-card-btn btn-link" to="/Shop" onClick={()=>dispatch({type:"CATEGORY",payload:categoryName})} >
                     EXPLORE NOW
                 </NavLink>
-            </button>
         </section>
     )
 }
