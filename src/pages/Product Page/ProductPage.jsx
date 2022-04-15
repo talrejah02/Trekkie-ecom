@@ -7,8 +7,8 @@ import axios from 'axios'
 
 function ProductPage() {
   const [defaultProducts,setDefaultProducts]=useState([])
-
-  const {dispatch}=useProducts()
+  const {state,dispatch}=useProducts()
+  
   useEffect(()=>{ 
     (async ()=>{
         try{
@@ -25,7 +25,7 @@ function ProductPage() {
   return (
     <div className='main-wrapper'>
      <Filters data={defaultProducts} />
-     <ProductListing/>
+     <ProductListing products={state.products} />
     </div>
   )
 }
