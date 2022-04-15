@@ -1,36 +1,38 @@
 import React from 'react'
+import { usePrivateproducts } from '../../context/PrivateProductsContext'
 import "../../pages/Cart-page/Cart.css"
-function CartitemCard() {
+function CartitemCard({item}) {
+    const {dispatch}=usePrivateproducts()
     return (
         <section className="card horizontal">
-            <img className="card-img" src="Images/sweater.webp" alt="" />
+            <img className="card-img" src={item.image} alt="" />
             <section className="card-description">
                 <section className="card-detail">
-                    <span className="card-category">category</span>
-                    <span className="card-title">product title</span>
+                    <span className="card-category">{item.categoryName}</span>
+                    <span className="card-title">{item.title}</span>
                 </section>
 
                 <section className="product-price">
-                    <span className="price">₹299</span>
-                    <s className="og-price">499</s>
-                    <span className="product-discount">40% off</span>
+                    <span className="price">{item.discountedPrice}</span>
+                    <s className="og-price">{item.orignalPrice}</s>
+                    <span className="product-discount">{item.offer}off</span>
                 </section>
                 <section className="product-qty">
-                    <button className="qty-btn">
+                    <button className="qty-btn" onClick={()=>dispatch({type:"INC_QTY",payload:item})} >
                         <span className="qty-btn-svg">
                             <svg xmlns="http://www.w3.org/2000/svg" xmlnsXlink="http://www.w3.org/1999/xlink" aria-hidden="true" role="img" className="iconify iconify--ic" width="15" height="15" preserveAspectRatio="xMidYMid meet" viewBox="0 0 24 24"><path fill="currentColor" d="M19 12.998h-6v6h-2v-6H5v-2h6v-6h2v6h6z"></path>
                             </svg>
                         </span>
                     </button>
-                    <span>1</span>
-                    <button className="qty-btn">
+                    <span>{item.quantity}</span>
+                    <button className="qty-btn" onClick={()=>dispatch({type:"DEC_QTY",payload:item})}>
+                        <span className="qty-btn-svg"></span>
                         <span class="qty-btn-svg">
-
                             <svg xmlns="http://www.w3.org/2000/svg" xmlnsXlink="http://www.w3.org/1999/xlink" aria-hidden="true" role="img" class="iconify iconify--bi" width="15" height="15" preserveAspectRatio="xMidYMid meet" viewBox="0 0 16 16"><path fill="currentColor" d="M4 8a.5.5 0 0 1 .5-.5h7a.5.5 0 0 1 0 1h-7A.5.5 0 0 1 4 8z"></path></svg>
                         </span>
                     </button>
                 </section>
-                <button class="cart-btn">Remove from cart
+                <button class="cart-btn" onClick={()=>dispatch({type:"REMOVE_FROM_CART",payload:item})} >Remove from cart
                     <span class="cart-svg"><svg xmlns="http://www.w3.org/2000/svg"
                         xmlnsXlink="http://www.w3.org/1999/xlink" aria-hidden="true" role="img"
                         class="iconify iconify--ic" width="18" height="18" preserveAspectRatio="xMidYMid meet"
@@ -42,7 +44,7 @@ function CartitemCard() {
 
                 </button>
 
-                <button class="cart-btn">Move to wishlist
+                <button class="cart-btn" onClick={()=>dispatch({type:"MOVE_TO_WISHLIST",payload:item})}>Add to wishlist
                     <span class="cart-svg"><svg xmlns="http://www.w3.org/2000/svg"
                         xmlnsXlink="http://www.w3.org/1999/xlink" aria-hidden="true" role="img"
                         class="iconify iconify--ph" width="20" height="20" preserveAspectRatio="xMidYMid meet"
@@ -56,18 +58,6 @@ function CartitemCard() {
             </section>
             <section class="card-badge">BEST SELLER</section>
             <section class="card-badge two">BEST value</section>
-            <span class="wishlist-badge">
-                <svg xmlns="http://www.w3.org/2000/svg" xmlnsXlink="http://www.w3.org/1999/xlink"
-                    aria-hidden="true" role="img" className="iconify iconify--ph" width="22" height="22"
-                    preserveAspectRatio="xMidYMid meet" viewBox="0 0 256 256">
-                    <path className="outline"
-                        d="M128 216S28 160 28 92a52 52 0 0 1 100-20a52 52 0 0 1 100 20c0 68-100 124-100 124z">
-                    </path>
-                    <path className="inside"
-                        d="M128 224a7.8 7.8 0 0 1-3.9-1C119.8 220.6 20 163.9 20 92a60 60 0 0 1 108-36a60 60 0 0 1 108 36c0 30.6-17.7 62-52.6 93.4a314.3 314.3 0 0 1-51.5 37.6a7.8 7.8 0 0 1-3.9 1zm-3.9-15zM80 48a44 44 0 0 0-44 44c0 55.2 74 103.7 92 114.7c18-11 92-59.5 92-114.7a44 44 0 0 0-84.6-17a8 8 0 0 1-14.8 0A43.8 43.8 0 0 0 80 48z">
-                    </path>
-                </svg>
-            </span>
         </section>
     )
 }
