@@ -6,8 +6,6 @@ const usePrivateproducts=()=>useContext(PrivateProductContext)
 const privateTypes= {wishlist:[],cart:[]}
 
 const PrivateProductsProvider=({children})=>{
-    
-    
     const [state,dispatch]=useReducer(productReducer,privateTypes)
     return <PrivateProductContext.Provider value={{state,dispatch}}>{children}</PrivateProductContext.Provider>
 }

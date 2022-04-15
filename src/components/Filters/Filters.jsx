@@ -1,64 +1,91 @@
 import React from 'react'
+import { useState } from 'react/cjs/react.development'
+import { useProducts } from '../../context/ProductsContext'
 import "./filters.css"
 
-function Filters() {
+function Filters({data}) {  
+  const {dispatch}= useProducts()
+  const [slider,setSlider]=useState(10000)
+
+  const sliderHandler=(e)=>{
+    dispatch({type:"REFRESH_PRODUCTS",payload:data})
+    setSlider(parseInt(e.target.value,10))
+    dispatch({type:"PRICE_RANGE",payload:slider})
+  }
+
+  const categoryRatingsHandler=(e)=>{
+    dispatch({type:"REFRESH_PRODUCTS",payload:data})
+    dispatch({type:e.target.name,payload:e.target.value}) 
+  }
+
+  
+
   return (
     <aside class="filter-wrapper">
         <section class="filter-header">
           <span class="filter-heading">Filters</span>
-          <button class="btn-clear">clear</button>
+          <button class="btn-clear" onClick={()=> dispatch({type:"REFRESH_PRODUCTS",payload:data})}>clear</button>
         </section>
         <section class="filter">
           <span class="filter-subheading">price</span>
-          <section class="slider-text">
-            <span class="labels">50</span>
-            <span class="labels">100</span>
-            <span class="labels">150</span>
-          </section>
-          <input type="range" min="50" max="150" value="" class="slider" step="3" id="myRange" />
+          <input type="range" min="99" max="15999" step={1} value={slider}   class="slider"  onChange={(e)=>sliderHandler(e)} onClick={(e)=>sliderHandler(e)}  />
+          <span>{slider}</span>
         </section>
         <section class="filter">
           <span class="filter-subheading">category</span>
+
           <section class="filter-box">
-            <input type="checkbox" name="clothing" placeholder="" id="" />
-            <label class="labels" for="clothing">clothing</label>
+            <input type="radio" name="CATEGORY" value="backpacks" onChange={()=>dispatch({type:"REFRESH_PRODUCTS",payload:data})} />
+            <label class="labels" for="All">ALL</label>
           </section>
           <section class="filter-box">
-            <input type="checkbox" name="gears" placeholder="" id="" />
-            <label class="labels" for="gears">gears</label>
+            <input type="radio" name="CATEGORY" value="backpacks" onChange={(e)=>categoryRatingsHandler(e)} />
+            <label class="labels" for="backpacks">Backpacks</label>
           </section>
           <section class="filter-box">
-            <input type="checkbox" name="footwear" placeholder="" id="" />
-            <label class="labels" for="footwear">footwear</label>
+            <input type="radio" name="CATEGORY" value="clothing" onChange={(e)=>categoryRatingsHandler(e)} />
+            <label class="labels" for="clothing">Clothing</label>
+          </section>
+          <section class="filter-box">
+            <input type="radio" name="CATEGORY" value="camping" onChange={(e)=>categoryRatingsHandler(e)} />
+            <label class="labels" for="camping">Camping</label>
+          </section>
+          <section class="filter-box">
+            <input type="radio" name="CATEGORY" value="footwear" onChange={(e)=>categoryRatingsHandler(e)} />
+            <label class="labels" for="footwear">Footwear</label>
+          </section>
+          <section class="filter-box">
+            <input type="radio" name="CATEGORY" value="gears" onChange={(e)=>categoryRatingsHandler(e)} />
+            <label class="labels" for="gears">Gears</label>
           </section>
         </section>
         <section class="filter">
           <span class="filter-subheading">Rating</span>
           <section class="filter-box">
-            <input type="radio" name="rating" id="four" />
-            <label class="labels" for="four">4 Stars & above</label>
+            <input type="radio" name="RATINGS" value={4} onChange={(e)=>categoryRatingsHandler(e)}/>
+            <label class="labels" >4 Stars & above</label>
           </section>
           <section class="filter-box">
-            <input type="radio" name="rating" id="three" />
+            <input type="radio" name="RATINGS" id="three" value={3} onChange={(e)=>categoryRatingsHandler(e)}/>
             <label class="labels" for="three">3 Stars & above</label>
           </section>
           <section class="filter-box">
-            <input type="radio" name="rating" id="two" />
+            <input type="radio" name="RATINGS" id="two" value={2} onChange={(e)=>categoryRatingsHandler(e)}/>
             <label class="labels" for="two">2 Stars & above</label>
           </section>
           <section class="filter-box">
-            <input type="radio" name="rating" id="one" />
+            <input type="radio" name="RATINGS" id="one" value={1} onChange={(e)=>categoryRatingsHandler(e)}/>
             <label class="labels" for="one">1 star & above</label>
           </section>
         </section>
         <section class="filter">
           <span class="filter-subheading">Sort By</span>
           <section class="filter-box">
-            <input type="radio" name="sort" id="low" />
+            <input type="radio" name="sort" id="low" onChange={()=>dispatch({type:"LOW_TO_HIGH"})} />
             <label class="labels" for="low">Low to High</label>
           </section>
           <section class="filter-box">
-            <input type="radio" name="sort" id="high" />
+            <input type="radio" name="sort" id="high" onChange={()=>dispatch({type:"HIGH_TO_LOW"})} />
             <label class="labels" for="high">High to Low</label>
           </section>
         </section>
