@@ -57,9 +57,6 @@
     top: 22px;
 }
 
-.wishlist-badge svg {
-    fill: rgb(243, 74, 74);
-}
 
 .cart-svg {
     display: flex;

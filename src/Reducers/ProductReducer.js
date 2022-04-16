@@ -9,53 +9,55 @@ export const productReducer = (state, action) => {
       }
 
     case "INC_QTY":
-        return {
-          ...state, cart: state["cart"].map((item) => item._id === action.payload._id ? {
-            ...item,
-            quantity: item.quantity + 1
-          } : item)
-        }
+      return {
+        ...state, cart: state["cart"].map((item) => item._id === action.payload._id ? {
+          ...item,
+          quantity: item.quantity + 1
+        } : item)
+      }
 
-        case "DEC_QTY":
-          let quantityZero = false
+    case "DEC_QTY":
+      let quantityZero = false
 
-          let newCart = state["cart"].map((item) => {
-            if (item._id === action.payload._id) {
-              if (item.quantity === 1) quantityZero = true
-              else {
-                return {
-                  ...item,
-                  quantity: item.quantity - 1
-                }
-              }
-              return item
-            } else {
-              return item
-            }
-          });
-
-
-          if (quantityZero) {
-            newCart = newCart.filter((item) => item._id !== action.payload._id)
-          }
-
-
-          return {
-            ...state, cart: newCart
-          }
-
-          case "REMOVE_FROM_CART":
+      let newCart = state["cart"].map((item) => {
+        if (item._id === action.payload._id) {
+          if (item.quantity === 1) quantityZero = true
+          else {
             return {
-              ...state, cart: state["cart"].filter((item) => item._id !== action.payload._id)
+              ...item,
+              quantity: item.quantity - 1
             }
-            case "MOVE_TO_WISHLIST":
-              const NewCart = state["cart"].filter((item) => item._id !== action.payload._id)
-              const newWishlist = state["wishlist"].concat(action.payload)
-              return {
-                ...state, wishlist: newWishlist, cart: NewCart
-              }
-              default:
-                return state;
+          }
+          return item
+        } else {
+          return item
+        }
+      });
+
+
+      if (quantityZero) {
+        newCart = newCart.filter((item) => item._id !== action.payload._id)
+      }
+
+
+      return {
+        ...state, cart: newCart
+      }
+
+    case "REMOVE_FROM_CART":
+      return {
+        ...state, cart: state["cart"].filter((item) => item._id !== action.payload._id)
+      }
+    case "MOVE_TO_WISHLIST":
+      const NewCart = state["cart"].filter((item) => item._id !== action.payload._id)
+      const newWishlist = state["wishlist"].concat(action.payload)
+      return {
+        ...state, wishlist: newWishlist, cart: NewCart
+      }
+    case "ADD_TO_WISHLIST": return{...state,wishlist:[...state.wishlist,action.payload]}
+    case "REMOVE_FROM_WISHLIST": return{...state,wishlist:state["wishlist"].filter((item)=>item._id !== action.payload._id)}
+    default:
+      return state;
   }
 }
 
