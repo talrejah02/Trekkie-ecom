@@ -1,5 +1,4 @@
 import React from 'react'
-import { NavLink } from 'react-router-dom'
 import {CategoryCards,HeroCards} from '../../components/index'
 import { categories, HeroCategories } from '../../backend/db/categories'
 import "./Home.css"

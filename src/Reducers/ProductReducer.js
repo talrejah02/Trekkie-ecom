@@ -59,5 +59,3 @@ export const productReducer = (state, action) => {
   }
 }
 
-
-// hide add to wishlist if product is already in wishlist
