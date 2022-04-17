@@ -6,10 +6,10 @@ import { FilterReducer } from '../Reducers/FilterReducer'
 const ProductContext = createContext()
 
 const useProducts = () => useContext(ProductContext)
-const InitialProducts = { products: [] }
+const InitialState = { products: [],categories:[],rating:0,price:10000,sort:""}
 const ProductProvider = ({ children }) => {
-    const [state, dispatch] = useReducer(FilterReducer, InitialProducts)
-    return <ProductContext.Provider value={{ state, dispatch }}>
+    const [state, dispatch] = useReducer(FilterReducer, InitialState)
+    return <ProductContext.Provider value={{ state, dispatch ,InitialState}}>
         {children}
     </ProductContext.Provider>
 }
