@@ -3,17 +3,18 @@ export const FilterReducer=(state,action)=>{
       case "ADD_PRODUCTS":
         return{...state,products:action.payload}
       case "PRICE_RANGE":
-        return{...state,products:state["products"].filter((item)=>item.discountedPrice<action.payload)}
+        return{...state,price:action.payload}
       case "REFRESH_PRODUCTS":
-        return{...state,products:action.payload}
+        return{...action.payload}
       case "CATEGORY":
-        return{...state,products:state["products"].filter((item)=>item.categoryName === action.payload)}
+        return{...state,categories:[...state.categories,action.payload]}
+      case "REMOVE-CATEGORY":return{...state,categories:[...state.categories.filter((category)=>category !== action.payload)]}
       case "RATINGS":
-        return{...state,products:state["products"].filter((item)=>item.ratings>=parseInt(action.payload))}
+        return{...state,rating:action.payload}
       case "LOW_TO_HIGH":
-        return{...state,products:state["products"].sort((a,b)=>a.discountedPrice-b.discountedPrice)}
+        return{...state,sort:action.payload}
       case "HIGH_TO_LOW":
-        return{...state,products:state["products"].sort((a,b)=>b.discountedPrice-a.discountedPrice)}
+        return{...state,sort:action.pay}
       default:
         return state
   }

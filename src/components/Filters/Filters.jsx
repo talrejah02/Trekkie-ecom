@@ -4,18 +4,22 @@ import { useProducts } from '../../context/ProductsContext'
 import "./filters.css"
 
 function Filters({data}) {  
-  const {dispatch}= useProducts()
+  const {dispatch,InitialState}= useProducts()
   const [slider,setSlider]=useState(10000)
 
   const sliderHandler=(e)=>{
-    dispatch({type:"REFRESH_PRODUCTS",payload:data})
+    // dispatch({type:"REFRESH_PRODUCTS",payload:data})
     setSlider(parseInt(e.target.value,10))
     dispatch({type:"PRICE_RANGE",payload:slider})
   }
 
   const categoryRatingsHandler=(e)=>{
-    dispatch({type:"REFRESH_PRODUCTS",payload:data})
-    dispatch({type:e.target.name,payload:e.target.value}) 
+    // dispatch({type:"REFRESH_PRODUCTS",payload:data})
+    if(e.target.checked){
+      dispatch({type:e.target.name,payload:e.target.value}) 
+    }else{
+      dispatch({type:"REMOVE-CATEGORY",payload:e.target.value}) 
+    }
   }
 
   
@@ -24,7 +28,7 @@ function Filters({data}) {
     <aside class="filter-wrapper">
         <section class="filter-header">
           <span class="filter-heading">Filters</span>
-          <button class="btn-clear" onClick={()=> dispatch({type:"REFRESH_PRODUCTS",payload:data})}>clear</button>
+          <button class="btn-clear" onClick={()=> dispatch({type:"REFRESH_PRODUCTS",payload:InitialState})}>clear</button>
         </section>
         <section class="filter">
           <span class="filter-subheading">price</span>
@@ -35,27 +39,27 @@ function Filters({data}) {
           <span class="filter-subheading">category</span>
 
           <section class="filter-box">
-            <input type="radio" name="CATEGORY" value="backpacks" onChange={()=>dispatch({type:"REFRESH_PRODUCTS",payload:data})} />
+            <input type="checkbox"  name="CATEGORY" value="backpacks" onChange={()=>dispatch({type:"REFRESH_PRODUCTS",payload:data})} />
             <label class="labels" for="All">ALL</label>
           </section>
           <section class="filter-box">
-            <input type="radio" name="CATEGORY" value="backpacks" onChange={(e)=>categoryRatingsHandler(e)} />
+            <input type="checkbox" name="CATEGORY" value="backpacks" onChange={(e)=>categoryRatingsHandler(e)} />
             <label class="labels" for="backpacks">Backpacks</label>
           </section>
           <section class="filter-box">
-            <input type="radio" name="CATEGORY" value="clothing" onChange={(e)=>categoryRatingsHandler(e)} />
+            <input type="checkbox" name="CATEGORY" value="clothing" onChange={(e)=>categoryRatingsHandler(e)} />
             <label class="labels" for="clothing">Clothing</label>
           </section>
           <section class="filter-box">
-            <input type="radio" name="CATEGORY" value="camping" onChange={(e)=>categoryRatingsHandler(e)} />
+            <input type="checkbox" name="CATEGORY" value="camping" onChange={(e)=>categoryRatingsHandler(e)} />
             <label class="labels" for="camping">Camping</label>
           </section>
           <section class="filter-box">
-            <input type="radio" name="CATEGORY" value="footwear" onChange={(e)=>categoryRatingsHandler(e)} />
+            <input type="checkbox" name="CATEGORY" value="footwear" onChange={(e)=>categoryRatingsHandler(e)} />
             <label class="labels" for="footwear">Footwear</label>
           </section>
           <section class="filter-box">
-            <input type="radio" name="CATEGORY" value="gears" onChange={(e)=>categoryRatingsHandler(e)} />
+            <input type="checkbox" name="CATEGORY" value="gears" onChange={(e)=>categoryRatingsHandler(e)} />
             <label class="labels" for="gears">Gears</label>
           </section>
         </section>
@@ -81,11 +85,11 @@ function Filters({data}) {
         <section class="filter">
           <span class="filter-subheading">Sort By</span>
           <section class="filter-box">
-            <input type="radio" name="sort" id="low" onChange={()=>dispatch({type:"LOW_TO_HIGH"})} />
+            <input type="radio" name="sort" id="low" onChange={()=>dispatch({type:"LOW_TO_HIGH",payload:"ascending"})} />
             <label class="labels" for="low">Low to High</label>
           </section>
           <section class="filter-box">
-            <input type="radio" name="sort" id="high" onChange={()=>dispatch({type:"HIGH_TO_LOW"})} />
+            <input type="radio" name="sort" id="high" onChange={()=>dispatch({type:"HIGH_TO_LOW",payload:"descending"})} />
             <label class="labels" for="high">High to Low</label>
           </section>
         </section>

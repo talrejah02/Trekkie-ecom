@@ -44,7 +44,7 @@ export const HeroCategories = [{
   },
   {
     _id: uuid(),
-    categoryName: "Backpacks",
+    categoryName: "backpacks",
     categoryText: "10-90L",
     categorySubtext: "BACKPACKS",
     Image: "Images/backpack1.webp",
