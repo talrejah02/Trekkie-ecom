@@ -60,7 +60,7 @@ function Login() {
                         <NavLink to="">forgot your password</NavLink>
                     </section>
                     <button className="login-btn">Log in</button>
-                    <NavLink className="login-link" to="">Create an account </NavLink>
+                    <NavLink className="login-link" to="/Signup">Create an account </NavLink>
                 </section>
 
             </section>
