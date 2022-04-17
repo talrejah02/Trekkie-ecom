@@ -15,7 +15,7 @@ function Filters({data}) {
     dispatch({type:"PRICE_RANGE",payload:slider})
   }
 
-  const categoryRatingsHandler=(e)=>{
+  const categoryHandler=(e)=>{
     dispatch({type:"REFRESH_PRODUCTS",payload:data})
     dispatch({type:e.target.name,payload:e.target.value}) 
   }
@@ -40,23 +40,23 @@ function Filters({data}) {
             <label className="labels" >ALL</label>
           </section>
           <section className="filter-box">
-            <input type="radio" name="CATEGORY" value="backpacks" onChange={(e)=>categoryRatingsHandler(e)} />
+            <input type="radio" name="CATEGORY" value="backpacks" onChange={(e)=>categoryHandler(e)} />
             <label className="labels" >Backpacks</label>
           </section>
           <section className="filter-box">
-            <input type="radio" name="CATEGORY" value="clothing" onChange={(e)=>categoryRatingsHandler(e)} />
+            <input type="radio" name="CATEGORY" value="clothing" onChange={(e)=>categoryHandler(e)} />
             <label className="labels">Clothing</label>
           </section>
           <section className="filter-box">
-            <input type="radio" name="CATEGORY" value="camping" onChange={(e)=>categoryRatingsHandler(e)} />
+            <input type="radio" name="CATEGORY" value="camping" onChange={(e)=>categoryHandler(e)} />
             <label className="labels">Camping</label>
           </section>
           <section className="filter-box">
-            <input type="radio" name="CATEGORY" value="footwear" onChange={(e)=>categoryRatingsHandler(e)} />
+            <input type="radio" name="CATEGORY" value="footwear" onChange={(e)=>categoryHandler(e)} />
             <label className="labels">Footwear</label>
           </section>
           <section className="filter-box">
-            <input type="radio" name="CATEGORY" value="gears" onChange={(e)=>categoryRatingsHandler(e)} />
+            <input type="radio" name="CATEGORY" value="gears" onChange={(e)=>categoryHandler(e)} />
             <label className="labels" >Gears</label>
           </section>
         </section>

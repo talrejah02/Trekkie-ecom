@@ -7,6 +7,7 @@ function ProductListing() {
   const{state}=useProducts()
   const{products}=state
   
+  
    
   return (
     <section className="card-container">

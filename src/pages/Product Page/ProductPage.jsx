@@ -9,12 +9,12 @@ function ProductPage() {
   const [defaultProducts,setDefaultProducts]=useState([])
 
   const {state,dispatch}=useProducts()
-  
+ 
   useEffect(()=>{ 
     (async ()=>{
         try{
           if(state["products"].length>1){
-            return
+            setDefaultProducts(state.products)
           }else{
               const response = await axios.get("/api/products")
               dispatch({type:"ADD_PRODUCTS",payload:response.data.products})
