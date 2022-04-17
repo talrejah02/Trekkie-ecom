@@ -37,11 +37,6 @@ function Filters({data}) {
         </section>
         <section class="filter">
           <span class="filter-subheading">category</span>
-
-          <section class="filter-box">
-            <input type="checkbox"  name="CATEGORY" value="backpacks" onChange={()=>dispatch({type:"REFRESH_PRODUCTS",payload:data})} />
-            <label class="labels" for="All">ALL</label>
-          </section>
           <section class="filter-box">
             <input type="checkbox" name="CATEGORY" value="backpacks" onChange={(e)=>categoryRatingsHandler(e)} />
             <label class="labels" for="backpacks">Backpacks</label>
