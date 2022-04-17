@@ -2,7 +2,7 @@ import React from 'react'
 import "./ProductPage.css"
 import {Filters,ProductListing} from "../../components/index"
 import { useProducts } from '../../context/ProductsContext'
-import { useState,useEffect } from 'react/cjs/react.development'
+import { useState,useEffect } from 'react'
 import {getFiltereddata} from "../../utils/getFiltereddata"
 import axios from 'axios'
 
