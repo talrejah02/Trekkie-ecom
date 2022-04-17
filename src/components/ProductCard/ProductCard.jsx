@@ -1,6 +1,6 @@
 import React from 'react'
 import { useNavigate } from 'react-router-dom'
-import { useEffect, useState } from 'react/cjs/react.development'
+import { useEffect, useState } from 'react'
 import { usePrivateproducts } from '../../context/PrivateProductsContext'
 import "./ProductCard.css"
 
