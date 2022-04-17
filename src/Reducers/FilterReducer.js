@@ -14,7 +14,7 @@ export const FilterReducer=(state,action)=>{
       case "LOW_TO_HIGH":
         return{...state,sort:action.payload}
       case "HIGH_TO_LOW":
-        return{...state,sort:action.pay}
+        return{...state,sort:action.payload}
       default:
         return state
   }
